@@ -13,6 +13,9 @@ for question in question_data:
 quiz = QuizBrain(question_bank)
 
 while quiz.still_has_questions():
-    quiz.next_question()
-print("You've completed the quiz")
+    if quiz.next_question() is True:
+        continue
+    else:
+        print(f"Your final score was: {quiz.score}/{quiz.question_number}")
+        exit()
 print(f"Your final score was: {quiz.score}/{quiz.question_number}")
